@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for message in messages %}
+    <a style = "display : block;text-decoration : none ; color : black ; margin : 2rem" href = {{message.get_absolute_url}}>{{message.receptor}} </a>
+    {% endfor %}
+     <button style = "background-color : #0e0 ; border-radius : 8px;margin-left : 2rem">
+<a style = "display : block;text-decoration : none ; color : black ; margin : 0.5rem" href = {% url 'create' %}>
+Create
+ </a>
+ </button>
+{% endblock content %}

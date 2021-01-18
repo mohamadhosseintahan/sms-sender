@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -7,4 +8,8 @@ class Message(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return self.receptor
+        return self.message
+
+    def get_absolute_url(self):
+        return reverse("detail", args=[self.id])
+    

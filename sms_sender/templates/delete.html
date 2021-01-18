@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+ <div class="module">
+    <form method="post">
+      {% csrf_token %}
+      <p>Are you sure you want to delete "{{ message.receptor }}"?</p>
+      <input type="submit" value="Confirm">
+    </form>
+  </div>
+{% endblock content %}
