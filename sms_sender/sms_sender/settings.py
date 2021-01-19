@@ -38,10 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Third-party
+    'crispy_forms',
+    #local
     'Base',
     'sms_panel',
     'web_panel',
 ]
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+#acount setting
+LOGIN_REDIRECT_URL = 'list'
+LOGOUT_REDIRECT_URL = 'list'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

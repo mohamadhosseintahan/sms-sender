@@ -3,34 +3,40 @@ from django.views.generic import ListView , CreateView , UpdateView , DeleteView
 from Base.models import Message
 from .forms import SMSForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class MessageList(ListView):
+class MessageList( LoginRequiredMixin, ListView):
+    login_url = 'login'
     model = Message
     paginate_by = 15
     template_name = 'list.html'
     context_object_name = 'messages'
 
-class MessageCreate(CreateView):
+class MessageCreate( LoginRequiredMixin,CreateView):
+    login_url = 'login'
     model = Message
     form_class = SMSForm
     # fields = ('receptor' , 'message' ,)
     template_name = 'form.html'
     success_url = reverse_lazy('list')
 
-class MessageDetail(DetailView):
+class MessageDetail( LoginRequiredMixin,DetailView):
+    login_url = 'login'
     model = Message
     template_name = 'detail.html'
     context_object_name = 'message'
 
-class MessageUpdate(UpdateView):
+class MessageUpdate( LoginRequiredMixin,UpdateView):
+    login_url = 'login'
     model = Message
     form_class = SMSForm
     # fields = ('receptor' , 'message' ,)
     template_name = 'form.html'
     success_url = reverse_lazy('list')
 
-class MessageDelete(DeleteView):
+class MessageDelete( LoginRequiredMixin,DeleteView):
+    login_url = 'login'
     model = Message
     template_name = 'delete.html'
     success_url = reverse_lazy('list')
