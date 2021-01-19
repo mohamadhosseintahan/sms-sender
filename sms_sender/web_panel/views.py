@@ -13,7 +13,8 @@ class MessageList(ListView):
 
 class MessageCreate(CreateView):
     model = Message
-    fields = ('receptor' , 'message' ,)
+    form_class = SMSForm
+    # fields = ('receptor' , 'message' ,)
     template_name = 'form.html'
     success_url = reverse_lazy('list')
 
@@ -24,7 +25,8 @@ class MessageDetail(DetailView):
 
 class MessageUpdate(UpdateView):
     model = Message
-    fields = ('receptor' , 'message' ,)
+    form_class = SMSForm
+    # fields = ('receptor' , 'message' ,)
     template_name = 'form.html'
     success_url = reverse_lazy('list')
 

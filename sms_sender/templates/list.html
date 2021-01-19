@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<h2 style = "margin : 2rem"> message list </h2>
     {% for message in messages %}
     <a style = "display : block;text-decoration : none ; color : black ; margin : 2rem" href = {{message.get_absolute_url}}>{{message.receptor}} </a>
     {% endfor %}
