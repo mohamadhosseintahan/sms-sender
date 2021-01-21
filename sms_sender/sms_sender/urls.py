@@ -20,5 +20,6 @@ from django.contrib.auth import urls
 urlpatterns = [
     path('accounts/' , include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('send/' , include('sms_panel.urls')),
     path('' , include('web_panel.urls')),
 ]

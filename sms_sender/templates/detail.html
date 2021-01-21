@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class = 'container'>
 <h4> 
 {{message.receptor}}
 </h4>
 <p>
 {{message.message}}
 </p>
-<button style = "background-color : #59e ; border-radius : 8px">
-<a style = "display : block;text-decoration : none ; color : black ; margin : 0.5rem" href = {% url 'update' message.pk %}>
-Update
- </a>
- </button>
- <button style = "background-color : #e00 ; border-radius : 8px"> 
-<a style = "display : block;text-decoration : none ; color : black ; margin : 0.5rem" href = {% url 'delete' message.pk %}>
+ <button class = 'btn btn-danger'> 
+<a href = {% url 'delete' message.pk %} style = "text-decoration : none ; color : #eee">
 Delete
  </a>
  </button>
+ </div>
 {% endblock content %}
